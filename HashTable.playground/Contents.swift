@@ -54,18 +54,16 @@ class HashTable<Key: Hashable> {
         child.key = key
         child.value = value
         
-        //check for an existing bucket 
+        // Checking Buckets
         if (buckets[index] == nil) {
             buckets[index] = child
         } else {
-            print("Found collision. Begin chaining.")
+            print("Collision found. Chaining.")
             head = buckets[index]
             
-            //append new item to the head of the list
+            // Append item to head
             child.next = head
             head = child
-            
-            //update the chained list
             buckets[index] = head
         }
     }
