@@ -46,7 +46,7 @@ class HashTable<Key: Hashable> {
     }
     
     func addValue(value: AnyObject, forKey key: Key) {
-        let hashindex : Int = hashKey(key)
+        let index : Int = hashKey(key)
         
         let child = Node<Key>()
         var head: Node<Key>!
@@ -55,18 +55,18 @@ class HashTable<Key: Hashable> {
         child.value = value
         
         //check for an existing bucket 
-        if (buckets[hashindex] == nil) {
-            buckets[hashindex] = child
+        if (buckets[index] == nil) {
+            buckets[index] = child
         } else {
             print("Found collision. Begin chaining.")
-            head = buckets[hashindex]
+            head = buckets[index]
             
             //append new item to the head of the list
             child.next = head
             head = child
             
             //update the chained list
-            buckets[hashindex] = head
+            buckets[index] = head
         }
     }
     
