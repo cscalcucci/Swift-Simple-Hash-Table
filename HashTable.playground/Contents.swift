@@ -52,6 +52,7 @@ class HashTable<Key: Hashable> {
         var head: Node<Key>!
         
         child.key = key
+        child.value = value
         
         //check for an existing bucket 
         if (buckets[hashindex] == nil) {
